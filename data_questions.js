@@ -3,7 +3,7 @@ const organicQuestions = [
   // --- נומנקלטורה ---
   {
     id: 1,
-    category: "nomenclature",
+    category: "nomenclature_functional",
     title: "נומנקלטורה של אלקנים",
     text: "קבעו מהו השם הסיסטמתי (IUPAC) הנכון עבור המולקולה הבאה (כולל קונפיגורציית E/Z במידת הצורך):",
     svg: `<svg viewBox="0 0 300 120" width="100%" height="120" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -65,7 +65,7 @@ const organicQuestions = [
 
   {
     id: 2,
-    category: "nomenclature",
+    category: "nomenclature_alkanes",
     title: "תיקון שמות שגויים",
     text: "עבור מולקולה מסוימת ניתן השם השגוי 2-ethylbutane. קבעו מהו השם הסיסטמתי (IUPAC) הנכון של המולקולה:",
     svg: `<svg viewBox="0 0 300 120" width="100%" height="120" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -109,7 +109,7 @@ const organicQuestions = [
   },
   {
     id: 3,
-    category: "nomenclature",
+    category: "nomenclature_alkanes",
     title: "נומנקלטורה של ציקלואלקנים",
     text: "קבעו מהו השם הסיסטמתי (IUPAC) הנכון של הציקלואלקן הדו-מותמר הבא:",
     svg: `<svg viewBox="0 0 300 150" width="100%" height="150" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -154,7 +154,7 @@ const organicQuestions = [
   },
   {
     id: 4,
-    category: "resonance",
+    category: "resonance_structures",
     title: "זיהוי מבנים רזונטיביים",
     text: "איזה מזוגות המבנים הבאים מייצג מבנים רזונטיביים (resonance structures) ולא איזומרים מבניים (constitutional isomers)?",
     svg: `<svg viewBox="0 0 350 140" width="100%" height="140" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -200,7 +200,7 @@ const organicQuestions = [
   },
   {
     id: 5,
-    category: "resonance",
+    category: "resonance_structures",
     title: "יציבות מבנים רזונטיביים",
     text: "לפניכם שלושה מבנים רזונטיביים (III-I) של קטיון אמיד. קבעו איזה מהם הוא התורם העיקרי (היציב ביותר) להיבריד הרזוננס:",
     svg: `<svg viewBox="0 0 460 120" width="100%" height="120" style="background:#0f172a; border-radius:8px; direction: ltr;">
@@ -251,7 +251,7 @@ const organicQuestions = [
 
   {
     id: 6,
-    category: "resonance",
+    category: "acid_base",
     title: "רזוננס וחומציות (ARIO)",
     text: "לפניכם שלוש תרכובות (א-ג). קבעו מי מהן היא החומצה החזקה ביותר על סמך יציבות הבסיס המצומד:",
     svg: `<svg viewBox="0 0 320 120" width="100%" height="120" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -310,7 +310,7 @@ const organicQuestions = [
   // --- קונפורמציות ---
   {
     id: 7,
-    category: "conformations",
+    category: "conformations_newman",
     title: "היטלי ניומן ויציבות",
     text: "עבור המולקולה 3-methylpentane, במבט לאורך הקשר C2-C3, קבעו איזו קונפורמציית ניומן היא היציבה ביותר (בעלת האנרגיה הנמוכה ביותר):",
     svg: `<svg viewBox="0 0 350 140" width="100%" height="140" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -388,7 +388,7 @@ const organicQuestions = [
   },
   {
     id: 8,
-    category: "conformations",
+    category: "conformations_chair",
     title: "קונפורמציית כסא של ציקלוהקסאן",
     text: "קבעו מהי קונפורמציית הכיסא היציבה ביותר (המועדפת אנרגטית) עבור cis-1,3-dimethylcyclohexane:",
     svg: `<svg viewBox="0 0 350 140" width="100%" height="140" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -447,7 +447,7 @@ const organicQuestions = [
   // --- סטריאוכימיה ---
   {
     id: 9,
-    category: "stereochemistry",
+    category: "stereochemistry_centers",
     title: "קביעת קונפיגורציית R/S",
     text: "קבעי את הקונפיגורציה המוחלטת (R או S) של המרכז הכיראלי במולקולה הבאה:",
     svg: `<svg viewBox="0 0 300 130" width="100%" height="130" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -502,7 +502,7 @@ const organicQuestions = [
 
   {
     id: 10,
-    category: "stereochemistry",
+    category: "stereochemistry_relationships",
     title: "יחסים בין סטריאואיזומרים",
     text: "מהו היחס בין זוג המולקולות הבאות המיוצגות בהיטלי פישר?",
     svg: `<svg viewBox="0 0 340 140" width="100%" height="140" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -566,7 +566,7 @@ const organicQuestions = [
   // --- תגובות ומנגנונים ---
   {
     id: 11,
-    category: "reactions",
+    category: "reactions_addition",
     title: "תגובות סיפוח לאלקנים ושחלופים",
     text: "מהו התוצר העיקרי בתגובת הסיפוח הבאה של HBr לאלקן?",
     svg: `<svg viewBox="0 0 300 130" width="100%" height="130" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -612,7 +612,7 @@ const organicQuestions = [
   },
   {
     id: 12,
-    category: "reactions",
+    category: "reactions_addition",
     title: "הידרובורציה-חמצון (Hydroboration-Oxidation)",
     text: "מהו התוצר העיקרי בתגובה הבאה של אלקן עם בוראן ולאחר מכן מי חמצן בבסיס?",
     svg: `<svg viewBox="0 0 300 130" width="100%" height="130" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -658,7 +658,7 @@ const organicQuestions = [
   },
   {
     id: 13,
-    category: "mechanisms",
+    category: "mechanisms_substitution",
     title: "תחרות מנגנוני התמרה ואלימינציה",
     text: "מה יהיה התוצר העיקרי של התגובה הבאה ומהו המנגנון השולט?",
     svg: `<svg viewBox="0 0 300 130" width="100%" height="130" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -706,7 +706,7 @@ const organicQuestions = [
   },
   {
     id: 14,
-    category: "mechanisms",
+    category: "mechanisms_substitution",
     title: "סטריאוכימיה של תגובות התמרה (SN2)",
     text: "עבור התגובה של (R)-2-bromobutane עם NaCN בממס DMF, מה תהיה הקונפיגורציה של המרכז הכיראלי בתוצר?",
     svg: `<svg viewBox="0 0 300 130" width="100%" height="130" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -755,7 +755,7 @@ const organicQuestions = [
   },
   {
     id: 15,
-    category: "mechanisms",
+    category: "mechanisms_elimination",
     title: "תגובות אלימינציה Zaitsev vs Hofmann",
     text: "איזה בסיס יתן את האחוז הגבוה ביותר של **תוצר הופמן** (אלקן פחות מותמר/פחות יציב) בתגובת אלימינציה של 2-bromobutane?",
     svg: `<svg viewBox="0 0 300 130" width="100%" height="130" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -795,7 +795,7 @@ const organicQuestions = [
   },
   {
     id: 16,
-    category: "nomenclature",
+    category: "nomenclature_functional",
     title: "נומנקלטורה של אלכוהולים בלתי רווים",
     text: "מהו השם הנכון לפי כללי IUPAC עבור המולקולה הבאה?",
     svg: `<svg viewBox="0 0 300 120" width="100%" height="120" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -846,7 +846,7 @@ const organicQuestions = [
   },
   {
     id: 17,
-    category: "nomenclature",
+    category: "nomenclature_functional",
     title: "נומנקלטורה של אתרים (Ethers)",
     text: "מהו השם הנכון לפי כללי IUPAC עבור האתר הבא?",
     svg: `<svg viewBox="0 0 300 120" width="100%" height="120" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -891,7 +891,7 @@ const organicQuestions = [
   },
   {
     id: 18,
-    category: "nomenclature",
+    category: "nomenclature_functional",
     title: "נומנקלטורה סטריאוכימית",
     text: "מהו השם השיטתי הנכון המשלב הגדרה סטריאוכימית עבור המולקולה הבאה?",
     svg: `<svg viewBox="0 0 300 130" width="100%" height="130" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -956,7 +956,7 @@ const organicQuestions = [
   ,
   {
     id: 19,
-    category: "resonance",
+    category: "acid_base",
     title: "השפעות אינדוקטיביות ורזונטיביות על חומציות",
     text: "קבעי מי מהפנולים הבאים הוא **החומצה החזקה ביותר** על בסיס השפעות מתמירים על יציבות האניון?",
     svg: `<svg viewBox="0 0 350 130" width="100%" height="130" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -1021,7 +1021,7 @@ const organicQuestions = [
   },
   {
     id: 20,
-    category: "resonance",
+    category: "resonance_structures",
     title: "היבריד הרזוננס של יון הקרבונט",
     text: "עבור יון הקרבונט (CO3 2-), מהו סדר הקשר (Bond Order) הממוצע של קשרי הפחמן-חמצן בהיבריד הרזוננס?",
     svg: `<svg viewBox="0 0 300 120" width="100%" height="120" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -1073,7 +1073,7 @@ const organicQuestions = [
   },
   {
     id: 21,
-    category: "resonance",
+    category: "acid_base",
     title: "בסיסיות של אמינים ארומטיים",
     text: "מדוע אנילין (Aniline) הוא בסיס חלש בהרבה מאשר ציקלוהקסילאמין (Cyclohexylamine)?",
     svg: `<svg viewBox="0 0 320 120" width="100%" height="120" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -1122,7 +1122,7 @@ const organicQuestions = [
   // --- קונפורמציות ---
   {
     id: 22,
-    category: "conformations",
+    category: "conformations_newman",
     title: " Newman של 1,2-dichloroethane",
     text: "עבור 1,2-dichloroethane, איזו קונפורמציה staggered היא היציבה ביותר במצב גז?",
     svg: `<svg viewBox="0 0 350 140" width="100%" height="140" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -1194,7 +1194,7 @@ const organicQuestions = [
   },
   {
     id: 23,
-    category: "conformations",
+    category: "conformations_chair",
     title: "קונפורמציות כסא של 1,2-dimethylcyclohexane",
     text: "עבור איזומרי 1,2-dimethylcyclohexane, איזה איזומר יכול להתקיים בקונפורמציה שבה שתי קבוצות המתיל הן אקווטוריאליות (equatorial)?",
     svg: `<svg viewBox="0 0 300 130" width="100%" height="130" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -1240,7 +1240,7 @@ const organicQuestions = [
   },
   {
     id: 24,
-    category: "conformations",
+    category: "conformations_chair",
     title: "יציבות קונפורמציית כסא",
     text: "מדוע קונפורמציית הכסא (Chair) של cyclohexane יציבה בהרבה מקונפורמציית הסירה (Boat)?",
     svg: `<svg viewBox="0 0 320 120" width="100%" height="120" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -1289,7 +1289,7 @@ const organicQuestions = [
   // --- סטריאוכימיה ---
   {
     id: 25,
-    category: "stereochemistry",
+    category: "stereochemistry_centers",
     title: "קיראליות במערכות טבעתיות",
     text: "מי מהאיזומרים הבאים של 1,2-dichlorocyclopropane הוא **מולקולת מזו (meso compound) א-קיראלית**?",
     svg: `<svg viewBox="0 0 350 130" width="100%" height="130" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -1344,7 +1344,7 @@ const organicQuestions = [
   },
   {
     id: 26,
-    category: "stereochemistry",
+    category: "stereochemistry_centers",
     title: "היטלי פישר וקביעת R/S",
     text: "עבור היטל פישר הבא, מהי הקונפיגורציה של המרכז הכיראלי?",
     svg: `<svg viewBox="0 0 300 130" width="100%" height="130" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -1388,7 +1388,7 @@ const organicQuestions = [
   },
   {
     id: 27,
-    category: "stereochemistry",
+    category: "stereochemistry_relationships",
     title: "תרכובות מזו של חומצה טרטרית",
     text: "חומצה טרטרית (Tartaric acid) מכילה שני פחמנים כיראליים. כמה סטריאואיזומרים סך הכל קיימים עבורה?",
     svg: `<svg viewBox="0 0 300 120" width="100%" height="120" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -1441,7 +1441,7 @@ const organicQuestions = [
   // --- תגובות אלקנים ---
   {
     id: 28,
-    category: "reactions",
+    category: "reactions_cleavage",
     title: "אוזונוליזה של אלקנים טבעתיים",
     text: "מהו התוצר המתקבל בתגובת האוזונוליזה המחזרת הבאה של 1-methylcyclohexene?",
     svg: `<svg viewBox="0 0 300 130" width="100%" height="130" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -1489,7 +1489,7 @@ const organicQuestions = [
   },
   {
     id: 29,
-    category: "reactions",
+    category: "reactions_addition",
     title: "סיפוח מים ללא שחלוף (Oxymercuration)",
     text: "מהו התוצר העיקרי המתקבל בתגובת Oxymercuration-Demercuration של 3,3-dimethyl-1-butene?",
     svg: `<svg viewBox="0 0 300 130" width="100%" height="130" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -1536,7 +1536,7 @@ const organicQuestions = [
   },
   {
     id: 30,
-    category: "mechanisms",
+    category: "mechanisms_elimination",
     title: "סטריאוספציפיות של אלימינציה (E2)",
     text: "מהו התוצר העיקרי בתגובת E2 של האיזומר (2R,3R)-2-bromo-3-phenylbutane עם בסיס חזק (NaOEt)?",
     svg: `<svg viewBox="0 0 300 130" width="100%" height="130" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -1587,7 +1587,7 @@ const organicQuestions = [
   ,
   {
     id: 31,
-    category: "conformations",
+    category: "conformations_chair",
     title: "יציבות קונפורמציות כסא של אלקאן דו-מותמר",
     text: "עבור trans-1-isopropyl-4-methylcyclohexane, מהו המשפט הנכון לגבי קונפורמציות הכסא שלו?",
     svg: `<svg viewBox="0 0 350 140" width="100%" height="140" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -1638,7 +1638,7 @@ const organicQuestions = [
   },
   {
     id: 32,
-    category: "stereochemistry",
+    category: "stereochemistry_relationships",
     title: "סטריאואיזומרים במערכות טבעתיות קטנות",
     text: "כמה סטריאואיזומרים סך הכל קיימים עבור המולקולה 1,2-dimethylcyclobutane?",
     svg: `<svg viewBox="0 0 300 130" width="100%" height="130" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -1696,7 +1696,7 @@ const organicQuestions = [
   },
   {
     id: 33,
-    category: "reactions",
+    category: "mechanisms_elimination",
     title: "דה-הידרציה חומצית של כוהל ושחלופים מורכבים",
     text: "מהו התוצר העיקרי שיתקבל בתגובת הדה-הידרציה החומצית הבאה של 1-cyclobutylethanol בסביבה חומצית חמה?",
     svg: `<svg viewBox="0 0 320 120" width="100%" height="120" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -1749,7 +1749,7 @@ const organicQuestions = [
   },
   {
     id: 34,
-    category: "reactions",
+    category: "reactions_addition",
     title: "סטריאוספציפיות בסיפוח הלוגן לאלקן",
     text: "מהו התוצר המתקבל בתגובת הסיפוח של Br2 בממס דיכלורומתאן (CH2Cl2) ל-cis-2-butene?",
     svg: `<svg viewBox="0 0 320 120" width="100%" height="120" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -1796,7 +1796,7 @@ const organicQuestions = [
   },
   {
     id: 35,
-    category: "reactions",
+    category: "reactions_addition",
     title: "הידרובורציה-חמצון של אלקן טבעתי",
     text: "מהו התוצר העיקרי שיתקבל בתגובת הידרובורציה-חמצון של 1-methylcyclohexene?",
     svg: `<svg viewBox="0 0 320 120" width="100%" height="120" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -1839,7 +1839,7 @@ const organicQuestions = [
   },
   {
     id: 36,
-    category: "reactions",
+    category: "reactions_cleavage",
     title: "אוזונוליזה של דיאן טבעתי",
     text: "מהו התוצר המתקבל בתגובת האוזונוליזה המחזרת הבאה של 1,5-dimethyl-1,5-cyclooctadiene?",
     svg: `<svg viewBox="0 0 320 120" width="100%" height="120" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -1898,7 +1898,7 @@ const organicQuestions = [
   },
   {
     id: 37,
-    category: "mechanisms",
+    category: "mechanisms_elimination",
     title: "סטריאוכימיה של אלימינציה E2 בטבעות",
     text: "בתגובת E2 של menthyl chloride עם בסיס חזק (NaOEt/EtOH), מהו התוצר העיקרי המתקבל ומדוע התגובה איטית יחסית?",
     svg: `<svg viewBox="0 0 350 140" width="100%" height="140" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -1956,7 +1956,7 @@ Menthyl chloride מגיב לאט מאוד ונותן רק את אלקן הופמ
   },
   {
     id: 38,
-    category: "mechanisms",
+    category: "mechanisms_substitution",
     title: "השפעת הממס על נוקלאופיליות של הלוגנים",
     text: "כיצד משתנה סדר הנוקלאופיליות של יוני ההלוגן בתגובת SN2 כאשר עוברים מממס פרוטי (Methanol) לממס פולרי א-פרוטי (DMSO)?",
     svg: `<svg viewBox="0 0 320 120" width="100%" height="120" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -1995,7 +1995,7 @@ Menthyl chloride מגיב לאט מאוד ונותן רק את אלקן הופמ
   },
   {
     id: 39,
-    category: "mechanisms",
+    category: "mechanisms_elimination",
     title: "מנגנון דה-הידרציה חומצית של כהלים",
     text: "כיצד משתנה מנגנון תגובת הדה-הידרציה (אלימינציה של מים) של כהלים בסביבה חומצית כתלות במבנה הכוהל?",
     svg: `<svg viewBox="0 0 320 120" width="100%" height="120" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -2039,7 +2039,7 @@ Menthyl chloride מגיב לאט מאוד ונותן רק את אלקן הופמ
   },
   {
     id: 40,
-    category: "mechanisms",
+    category: "mechanisms_substitution",
     title: "מלכודת ה-SN2 הסטרית: נאופנטיל הליד",
     text: "מדוע נאופנטיל ברומיד, (CH3)3C-CH2-Br, מגיב באטיות קיצונית (כמעט אפסית) בתגובות התמרה נוקלאופילית מסוג SN2, למרות שהוא אלקיל הליד ראשוני (1°)?",
     svg: `<svg viewBox="0 0 320 120" width="100%" height="120" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -2090,7 +2090,7 @@ Menthyl chloride מגיב לאט מאוד ונותן רק את אלקן הופמ
   ,
   {
     id: 41,
-    category: "mechanisms",
+    category: "mechanisms_substitution",
     title: "נטייה לשחלופי קרבוקטיון",
     text: "עבור ארבעת הקרבוקטיונים הבאים, אילו מהם בעלי נטייה גבוהה במיוחד לעבור שחלוף (rearrangement) ליצירת קרבוקטיון יציב יותר?",
     svg: `<svg viewBox="0 0 400 130" width="100%" height="130" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -2159,7 +2159,7 @@ Menthyl chloride מגיב לאט מאוד ונותן רק את אלקן הופמ
   },
   {
     id: 42,
-    category: "resonance",
+    category: "resonance_structures",
     title: "זיהוי נוקלאופילים ואי-נוקלאופילים",
     text: "על פי המבנה האלקטרוני וזוגות האלקטרונים, מי מהחומרים הבאים אינו יכול לתפקד כנוקלאופיל (Nucleophile)?",
     svg: `<svg viewBox="0 0 320 120" width="100%" height="120" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -2194,7 +2194,7 @@ Menthyl chloride מגיב לאט מאוד ונותן רק את אלקן הופמ
   },
   {
     id: 43,
-    category: "mechanisms",
+    category: "mechanisms_substitution",
     title: "מהירות סולבוליזה במנגנון SN1",
     text: "איזה מהאלקיל הלידים הבאים יעבור תגובת סולבוליזה (solvolysis) בממס אתנול (EtOH) בקצב המהיר ביותר?",
     svg: `<svg viewBox="0 0 350 130" width="100%" height="130" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -2247,7 +2247,7 @@ Menthyl chloride מגיב לאט מאוד ונותן רק את אלקן הופמ
   },
   {
     id: 44,
-    category: "stereochemistry",
+    category: "stereochemistry_centers",
     title: "שינוי קונפיגורציה בתגובות התמרה",
     text: "בתגובת SN2 מלאה של המולקולה (S)-2-bromobutane עם יון ציאניד (⁻CN), מה תהיה הקונפיגורציה של התוצר 2-methylbutanenitrile?",
     svg: `<svg viewBox="0 0 320 125" width="100%" height="125" style="background:#1e293b; border-radius:8px; direction: ltr;">
@@ -2309,7 +2309,7 @@ Menthyl chloride מגיב לאט מאוד ונותן רק את אלקן הופמ
   },
   {
     id: 45,
-    category: "stereochemistry",
+    category: "stereochemistry_relationships",
     title: "תגובות סטריאוספציפיות ויצירת תוצר מיזו",
     text: "איזו מתגובות הסיפוח הבאות לקשר כפול תפיק מולקולת מיזו (Meso compound) יחידה ואקיראלית כתוצר עיקרי?",
     svg: `<svg viewBox="0 0 350 130" width="100%" height="130" style="background:#1e293b; border-radius:8px; direction: ltr;">

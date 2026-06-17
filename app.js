@@ -8,12 +8,18 @@ document.addEventListener("DOMContentLoaded", () => {
     streak: 1,
     lastPracticeDate: "",
     scores: {
-      nomenclature: { solved: 0, correct: 0, total: 3 },
-      resonance: { solved: 0, correct: 0, total: 3 },
-      conformations: { solved: 0, correct: 0, total: 2 },
-      stereochemistry: { solved: 0, correct: 0, total: 2 },
-      reactions: { solved: 0, correct: 0, total: 2 },
-      mechanisms: { solved: 0, correct: 0, total: 3 }
+      nomenclature_alkanes: { solved: 0, correct: 0, total: 0 },
+      nomenclature_functional: { solved: 0, correct: 0, total: 0 },
+      resonance_structures: { solved: 0, correct: 0, total: 0 },
+      acid_base: { solved: 0, correct: 0, total: 0 },
+      conformations_newman: { solved: 0, correct: 0, total: 0 },
+      conformations_chair: { solved: 0, correct: 0, total: 0 },
+      stereochemistry_centers: { solved: 0, correct: 0, total: 0 },
+      stereochemistry_relationships: { solved: 0, correct: 0, total: 0 },
+      reactions_addition: { solved: 0, correct: 0, total: 0 },
+      reactions_cleavage: { solved: 0, correct: 0, total: 0 },
+      mechanisms_substitution: { solved: 0, correct: 0, total: 0 },
+      mechanisms_elimination: { solved: 0, correct: 0, total: 0 }
     }
   };
 
@@ -22,12 +28,18 @@ document.addEventListener("DOMContentLoaded", () => {
   // Sync state with question counts dynamically if they change
   function syncStateTotals() {
     const counts = {
-      nomenclature: 0,
-      resonance: 0,
-      conformations: 0,
-      stereochemistry: 0,
-      reactions: 0,
-      mechanisms: 0
+      nomenclature_alkanes: 0,
+      nomenclature_functional: 0,
+      resonance_structures: 0,
+      acid_base: 0,
+      conformations_newman: 0,
+      conformations_chair: 0,
+      stereochemistry_centers: 0,
+      stereochemistry_relationships: 0,
+      reactions_addition: 0,
+      reactions_cleavage: 0,
+      mechanisms_substitution: 0,
+      mechanisms_elimination: 0
     };
     organicQuestions.forEach(q => {
       if (counts[q.category] !== undefined) {
@@ -152,12 +164,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- לוח בקרה (Dashboard Screen) ---
   const topicTitlesHebrew = {
-    nomenclature: "נומנקלטורה וקבוצות",
-    resonance: "מבני לואיס ורזוננס",
-    conformations: "קונפורמציות וכסאות",
-    stereochemistry: "סטריאוכימיה וקיראליות",
-    reactions: "תגובות סיפוח אלקנים",
-    mechanisms: "מנגנוני התמרה ואלימינציה"
+    nomenclature_alkanes: "נומנקלטורה: אלקנים וציקלואלקנים",
+    nomenclature_functional: "נומנקלטורה: קבוצות פונקציונליות",
+    resonance_structures: "מבני לואיס ורזוננס",
+    acid_base: "חומציות ובסיסיות (ARIO)",
+    conformations_newman: "היטלי ניומן (Newman)",
+    conformations_chair: "קונפורמציות כיסא ויציבות",
+    stereochemistry_centers: "מרכזים כיראליים וקביעת R/S",
+    stereochemistry_relationships: "קשרים סטריאוכימיים (אננטיומרים/מזו)",
+    reactions_addition: "תגובות סיפוח של אלקנים",
+    reactions_cleavage: "אוזונוליזה וביקוע אלקנים",
+    mechanisms_substitution: "מנגנוני התמרה נוקלאופילית (SN1/SN2)",
+    mechanisms_elimination: "מנגנוני אלימינציה (E1/E2 ודה-הידרציה)"
   };
 
   function renderDashboardTopics() {
