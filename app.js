@@ -23,7 +23,28 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  let appState = JSON.parse(localStorage.getItem("organic_practice_state")) || defaultState;
+  let appState = JSON.parse(localStorage.getItem("organic_practice_state"));
+  
+  if (!appState) {
+    appState = defaultState;
+  } else {
+    // Migration: ensure scores object exists
+    if (!appState.scores) {
+      appState.scores = {};
+    }
+    // Add missing new categories
+    for (let cat in defaultState.scores) {
+      if (!appState.scores[cat]) {
+        appState.scores[cat] = { solved: 0, correct: 0, total: 0 };
+      }
+    }
+    // Remove old obsolete categories (if any)
+    for (let cat in appState.scores) {
+      if (!defaultState.scores[cat]) {
+        delete appState.scores[cat];
+      }
+    }
+  }
 
   // Sync state with question counts dynamically if they change
   function syncStateTotals() {
