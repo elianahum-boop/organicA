@@ -2430,14 +2430,17 @@ Menthyl chloride מגיב לאט מאוד ונותן רק את אלקן הופמ
     category: "nomenclature_alkanes",
     title: "נומנקלטורה של מערכות דו-טבעתיות (Bicyclic)",
     text: "מהו השם הסיסטמתי הנכון עבור הפחמימן הדו-טבעתי הבא המכיל גשר?",
-    svg: `<svg viewBox="0 0 300 130" width="100%" height="130" style="background:#1e293b; border-radius:8px; direction: ltr;">
+    svg: `<svg viewBox="0 0 300 140" width="100%" height="140" style="background:#1e293b; border-radius:8px; direction: ltr;">
       <!-- Bicyclo[2.2.1]heptane system -->
+      <!-- Bottom path (2 carbons) -->
       <line x1="80" y1="80" x2="110" y2="110" stroke="#f8fafc" stroke-width="3"/>
       <line x1="110" y1="110" x2="160" y2="110" stroke="#f8fafc" stroke-width="3"/>
       <line x1="160" y1="110" x2="190" y2="80" stroke="#f8fafc" stroke-width="3"/>
-      <line x1="80" y1="80" x2="135" y2="45" stroke="#f8fafc" stroke-width="3"/>
-      <line x1="135" y1="45" x2="190" y2="80" stroke="#f8fafc" stroke-width="3"/>
-      <!-- Bridge C7 -->
+      <!-- Top path (2 carbons) -->
+      <line x1="80" y1="80" x2="110" y2="50" stroke="#f8fafc" stroke-width="3"/>
+      <line x1="110" y1="50" x2="160" y2="50" stroke="#f8fafc" stroke-width="3"/>
+      <line x1="160" y1="50" x2="190" y2="80" stroke="#f8fafc" stroke-width="3"/>
+      <!-- Bridge C7 (1 carbon) -->
       <line x1="80" y1="80" x2="135" y2="85" stroke="#38bdf8" stroke-width="3"/>
       <line x1="135" y1="85" x2="190" y2="80" stroke="#38bdf8" stroke-width="3"/>
       <!-- Labels for bridgeheads -->
