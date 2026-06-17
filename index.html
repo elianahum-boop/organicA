@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>אורגנית א' - שותף לתרגול אינטראקטיבי</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Rubik:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">🧪</div>
+        <div class="logo-title">
+          <h1>אורגנית א'</h1>
+          <span>שותף לתרגול</span>
+        </div>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <a href="#dashboard" class="nav-item active" id="nav-dashboard">
+          <span class="nav-icon">📊</span> לוח בקרה
+        </a>
+        <a href="#quizzes" class="nav-item" id="nav-quizzes">
+          <span class="nav-icon">📝</span> בחני תרגול
+        </a>
+        <a href="#chair" class="nav-item" id="nav-chair">
+          <span class="nav-icon">🔄</span> סימולטור כסאות
+        </a>
+        <a href="#flashcards" class="nav-item" id="nav-flashcards">
+          <span class="nav-icon">🎴</span> כרטיסיות אלקנים
+        </a>
+        <a href="#synthesis" class="nav-item" id="nav-synthesis">
+          <span class="nav-icon">🧪</span> אתגר סינתזה
+        </a>
+        <a href="#search" class="nav-item" id="nav-search">
+          <span class="nav-icon">🔍</span> חיפוש בסיכום
+        </a>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <button class="reset-btn" id="reset-progress">איפוס התקדמות</button>
+      </div>
+    </aside>
+
+    <!-- Main Content Panel -->
+    <main class="main-content">
+      
+      <!-- SCREEN: DASHBOARD -->
+      <section id="screen-dashboard" class="screen-panel active">
+        <div class="welcome-banner">
+          <h2>שלום, מוכנה לתרגל? 👋</h2>
+          <p>הבנת את החומר זה הצעד הראשון! עכשיו הזמן לתרגל בצורה אקטיבית כדי לשלוט במנגנונים ובסטריאוכימיה ברמת המבחן.</p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">✅</div>
+            <div class="stat-details">
+              <span class="stat-num" id="stat-solved">0</span>
+              <span class="stat-lbl">שאלות שנפתרו</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🎯</div>
+            <div class="stat-details">
+              <span class="stat-num" id="stat-accuracy">0%</span>
+              <span class="stat-lbl">אחוזי הצלחה</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">⚡</div>
+            <div class="stat-details">
+              <span class="stat-num" id="stat-streak">1</span>
+              <span class="stat-lbl">ימי רצף</span>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="section-title">התקדמות לפי נושאים</h3>
+        <div class="topics-grid" id="topics-progress-container">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </section>
+
+      <!-- SCREEN: QUIZZES -->
+      <section id="screen-quizzes" class="screen-panel">
+        <div class="category-selector-container">
+          <label for="quiz-category-select">בחרי נושא לתרגול:</label>
+          <select id="quiz-category-select">
+            <option value="all">כל הנושאים מעורבב</option>
+            <option value="nomenclature">נומנקלטורה וקבוצות פונקציונליות</option>
+            <option value="resonance">רזוננס וחומציות-בסיסיות</option>
+            <option value="conformations"> Newman וקונפורמציות כסא</option>
+            <option value="stereochemistry">סטריאוכימיה וקיראליות</option>
+            <option value="reactions">תגובות אלקנים</option>
+            <option value="mechanisms">התמרה ואלימינציה (SN1/SN2/E1/E2)</option>
+          </select>
+        </div>
+
+        <div class="quiz-container">
+          <div class="quiz-header">
+            <span class="quiz-badge" id="quiz-badge-category">נושא</span>
+            <span class="quiz-progress" id="quiz-progress-text">שאלה 1 מתוך 10</span>
+          </div>
+
+          <div class="quiz-question-card">
+            <h3 id="quiz-question-title">כותרת השאלה</h3>
+            <p id="quiz-question-text">טקסט השאלה כאן...</p>
+            <div class="molecule-viewer" id="quiz-molecule-viewer">
+              <!-- SVG diagram dynamically injected here -->
+            </div>
+          </div>
+
+          <div class="quiz-options-list" id="quiz-options-container">
+            <!-- Options buttons dynamically injected here -->
+          </div>
+
+          <div class="quiz-action-bar">
+            <button class="action-btn secondary-btn" id="quiz-prev-btn" style="visibility:hidden;">הקודם</button>
+            <button class="action-btn primary-btn" id="quiz-next-btn" style="display:none;">לשאלה הבאה</button>
+          </div>
+
+          <!-- Explanation Drawer (slides down when answered) -->
+          <div class="explanation-card" id="quiz-explanation-card">
+            <div class="exp-header">
+              <span class="exp-icon">💡</span>
+              <h4>הסבר מנגנוני מפורט:</h4>
+            </div>
+            <div class="exp-content" id="quiz-explanation-text">
+              הסבר מפורט בעברית...
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREEN: CHAIR SIMULATOR -->
+      <section id="screen-chair" class="screen-panel">
+        <div class="welcome-banner">
+          <h2>סימולטור יציבות כסאות ציקלוהקסאן 🔄</h2>
+          <p>הוסיפי מתמירים לפחמנים שונים בטבעת, קבעי אם הם פונים למעלה (Up) או למטה (Down) וראי מיד כיצד היפוך כסא משפיע על היציבות והאינטראקציות הדו-אקסיאליות!</p>
+        </div>
+
+        <div class="chair-workspace">
+          <!-- Settings Column -->
+          <div class="chair-controls-card">
+            <h3>בניית מולקולה</h3>
+            <div class="carbon-selectors-list" id="carbon-selectors">
+              <!-- Dynamically populated C1-C6 forms -->
+            </div>
+          </div>
+
+          <!-- Viewers Column -->
+          <div class="chair-viewers-container">
+            <div class="chair-side-by-side">
+              <div class="chair-view-box">
+                <h4>כסא א' (קונפורמציה ראשונית)</h4>
+                <div class="chair-svg-holder" id="chair-svg-a">
+                  <!-- SVG injected here -->
+                </div>
+              </div>
+              <div class="chair-view-box">
+                <h4>כסא ב' (אחרי היפוך - Ring Flip)</h4>
+                <div class="chair-svg-holder" id="chair-svg-b">
+                  <!-- SVG injected here -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Energy & Stability Report -->
+            <div class="stability-report-card" id="chair-report-container">
+              <div class="report-content" id="chair-report-text">
+                הוסיפי מתמירים כלשהם (למשל מתיל ב-C1 ומתיל ב-C3) כדי לראות את דוח היציבות המחושב.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREEN: FLASHCARDS -->
+      <section id="screen-flashcards" class="screen-panel">
+        <div class="welcome-banner">
+          <h2>כרטיסיות תגובות אלקנים 🎴</h2>
+          <p>שנון תגובות מהיר. לחצי על הכרטיסייה כדי להפוך אותה ולראות רגיוכימיה (מרקובניקוב/אנטי), סטריאוכימיה (סין/אנטי), חומרי ביניים וטיפים למבחן.</p>
+        </div>
+
+        <div class="flashcard-deck-container">
+          <div class="flashcard" id="reaction-flashcard">
+            <!-- Front of Card -->
+            <div class="card-side card-front">
+              <div class="card-tag">תגובה</div>
+              <h2 id="fc-name">שם התגובה</h2>
+              <div class="fc-reagents-box">
+                <span class="fc-reagents-lbl">מגיבים על החץ:</span>
+                <span class="fc-reagents-val" id="fc-reagents">BH3 / H2O2, OH-</span>
+              </div>
+              <div class="fc-starting-box">
+                <span class="fc-starting-lbl">חומר מוצא:</span>
+                <span class="fc-starting-val" id="fc-starting">אלקן</span>
+              </div>
+              <div class="tap-hint">נקישה כדי להפוך 🔄</div>
+            </div>
+
+            <!-- Back of Card -->
+            <div class="card-side card-back">
+              <div class="card-tag">תוצר ומנגנון</div>
+              <h3 id="fc-back-name">שם התגובה</h3>
+              
+              <div class="fc-details-list">
+                <div class="fc-detail-item">
+                  <strong>תוצר סופי:</strong>
+                  <span id="fc-product">אלכוהול</span>
+                </div>
+                <div class="fc-detail-item">
+                  <strong>רגיוכימיה:</strong>
+                  <span id="fc-regio">אנטי-מרקובניקוב</span>
+                </div>
+                <div class="fc-detail-item">
+                  <strong>סטריאוכימיה:</strong>
+                  <span id="fc-stereo">Syn-addition</span>
+                </div>
+                <div class="fc-detail-item">
+                  <strong>חומר ביניים:</strong>
+                  <span id="fc-intermediate">מצב מעבר טבעתי (ללא שחלוף)</span>
+                </div>
+                <div class="fc-detail-item">
+                  <strong>הערות חשובות:</strong>
+                  <span id="fc-notes">הסבר כלשהו...</span>
+                </div>
+              </div>
+              <div class="tap-hint">נקישה כדי להפוך 🔄</div>
+            </div>
+          </div>
+
+          <div class="flashcard-controls">
+            <button class="action-btn secondary-btn" id="fc-prev-btn">הקודם</button>
+            <span class="fc-counter" id="fc-counter-text">1 / 8</span>
+            <button class="action-btn primary-btn" id="fc-next-btn">הבא</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREEN: SYNTHESIS CHALLENGE -->
+      <section id="screen-synthesis" class="screen-panel">
+        <div class="welcome-banner">
+          <h2>אתגר סינתזה רב-שלבי 🧪</h2>
+          <p>נסי לסדר את המגיבים ברצף הנכון כדי להפוך את חומר המוצא לחומר היעד. לחצי על הריאגנטים כדי להוסיף אותם לנתיב הסינתטי שלך.</p>
+        </div>
+
+        <div class="synthesis-container">
+          <div class="synthesis-challenge-selector">
+            <label for="synthesis-select">בחרי אתגר סינתזה:</label>
+            <select id="synthesis-select">
+              <!-- Injected dynamically -->
+            </select>
+          </div>
+
+          <div class="synthesis-workspace">
+            <div class="synth-goal-card">
+              <div class="synth-point">
+                <span class="synth-lbl">חומר מוצא:</span>
+                <span class="synth-val" id="synth-start-material">Propene</span>
+              </div>
+              <div class="synth-arrow">➡️</div>
+              <div class="synth-point">
+                <span class="synth-lbl">חומר יעד:</span>
+                <span class="synth-val" id="synth-target-material">1-Propanol</span>
+              </div>
+            </div>
+
+            <div class="synth-hint-box" id="synth-hint">
+              רמז: ...
+            </div>
+
+            <!-- Current Synthesis Chain -->
+            <h4>הנתיב הסינתטי שלך:</h4>
+            <div class="synth-chain" id="synth-chain-container">
+              <!-- empty chain initially -->
+            </div>
+
+            <!-- Reagent options palette -->
+            <h4>בחרי מגיבים להוספה (לחצי לפי הסדר):</h4>
+            <div class="synth-reagents-palette" id="synth-palette">
+              <!-- Dynamically populated list of reagent chips -->
+            </div>
+
+            <div class="synth-action-bar">
+              <button class="action-btn danger-btn" id="synth-clear-btn">נקה הכל</button>
+              <button class="action-btn success-btn" id="synth-verify-btn">אמת סינתזה</button>
+            </div>
+
+            <!-- Synthesis Result Card -->
+            <div class="synthesis-result-card" id="synth-result-card" style="display:none;">
+              <h4 id="synth-result-title">תוצאה</h4>
+              <p id="synth-result-text">הסבר...</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREEN: SEARCH -->
+      <section id="screen-search" class="screen-panel">
+        <div class="welcome-banner">
+          <h2>חיפוש מהיר בסיכומי קורס 🔍</h2>
+          <p>הקלידי מילת מפתח (כמו "מרקובניקוב", "שחלוף", "SN1", "כסא") כדי לשלוף מיד את הכללים וההערות החשובות מתוך חומרי הקריאה והסיכום שלך.</p>
+        </div>
+
+        <div class="search-container">
+          <div class="search-bar-box">
+            <input type="text" id="summary-search-input" placeholder="הקלידי מונח לחיפוש (למשל: שחלוף, אוזונוליזה, SN2)..." />
+            <button class="action-btn primary-btn" id="summary-search-btn">חפש</button>
+          </div>
+
+          <div class="quick-tags-container">
+            <span class="search-tag-chip">מרקובניקוב</span>
+            <span class="search-tag-chip">שחלוף</span>
+            <span class="search-tag-chip">הידרובורציה</span>
+            <span class="search-tag-chip">אוזונוליזה</span>
+            <span class="search-tag-chip">SN1</span>
+            <span class="search-tag-chip">SN2</span>
+            <span class="search-tag-chip">הלוהידרין</span>
+            <span class="search-tag-chip">קבוצה עוזבת</span>
+          </div>
+
+          <div class="search-results-list" id="search-results-container">
+            <!-- Dynamically populated matches -->
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- Include all js databases and scripts -->
+  <script src="data_questions.js"></script>
+  <script src="data_flashcards.js"></script>
+  <script src="chair_simulator.js"></script>
+  <script src="summary.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
