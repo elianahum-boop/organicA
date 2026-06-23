@@ -169,9 +169,16 @@
         <div class="open-questions-layout">
           <!-- Selection and Navigation Sidebar -->
           <div class="open-q-sidebar">
-            <h3>בחרי שאלה לתרגול:</h3>
+            <label for="open-q-category-select" style="font-size: 13.5px; font-weight: 600; color: var(--text-muted); display: block; margin-bottom: 8px;">בחרי נושא שאלות:</label>
+            <select id="open-q-category-select" style="width: 100%; margin-bottom: 16px;">
+              <option value="all">כל הנושאים מעורבב</option>
+              <option value="conformations">אנליזה קונפורמטיבית (ניומן וכיסא)</option>
+              <option value="stereochemistry">סטריאוכימיה ונקיון אופטי</option>
+              <option value="mechanisms">מנגנונים ושחלופים (התמרה ואלימינציה)</option>
+              <option value="synthesis">סינתזה רב-שלבית ורטרו-סינתזה</option>
+            </select>
             <div class="open-q-list" id="open-q-nav-list">
-              <!-- Dynamically populated buttons for Q1-Q6 -->
+              <!-- Dynamically populated buttons for open questions -->
             </div>
           </div>
 

@@ -754,43 +754,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   // --- מערכת שאלות פתוחות למבחן (Open Questions Workspace) ---
-  let currentOpenQuestionIndex = 0;
+  let filteredOpenQuestions = [];
+  let currentFilteredOpenQIndex = 0;
   let isOpenQuestionsInitialized = false;
 
   function initOpenQuestionsWorkspace() {
     const navList = document.getElementById("open-q-nav-list");
-    if (!navList) return;
+    const categorySelect = document.getElementById("open-q-category-select");
+    if (!navList || !categorySelect) return;
 
-    // Render the list of questions in the sidebar
-    navList.innerHTML = "";
-    organicOpenQuestions.forEach((q, idx) => {
-      const btn = document.createElement("button");
-      btn.className = "open-q-nav-btn";
-      if (idx === currentOpenQuestionIndex) {
-        btn.classList.add("active");
+    function applyFiltering() {
+      const selectedCat = categorySelect.value;
+      if (selectedCat === "all") {
+        filteredOpenQuestions = organicOpenQuestions;
+      } else {
+        filteredOpenQuestions = organicOpenQuestions.filter(q => q.category === selectedCat);
       }
-      
-      btn.innerHTML = `
-        <span>${q.title}</span>
-        <span class="open-q-nav-btn-meta">שאלה ${q.id} | ${q.points} נק'</span>
-      `;
-      
-      btn.addEventListener("click", () => {
-        currentOpenQuestionIndex = idx;
-        
-        navList.querySelectorAll(".open-q-nav-btn").forEach((b, bIdx) => {
-          if (bIdx === idx) b.classList.add("active");
-          else b.classList.remove("active");
-        });
-        
-        renderActiveOpenQuestion();
+      currentFilteredOpenQIndex = 0;
+      renderOpenQuestionsList();
+      renderActiveOpenQuestion();
+    }
+
+    if (!isOpenQuestionsInitialized) {
+      categorySelect.addEventListener("change", () => {
+        applyFiltering();
       });
       
-      navList.appendChild(btn);
-    });
-
-    // Bind action buttons once
-    if (!isOpenQuestionsInitialized) {
       const hintBtn = document.getElementById("open-q-hint-btn");
       const solBtn = document.getElementById("open-q-sol-btn");
       
@@ -819,20 +808,73 @@ document.addEventListener("DOMContentLoaded", () => {
       isOpenQuestionsInitialized = true;
     }
 
-    renderActiveOpenQuestion();
+    applyFiltering();
+  }
+
+  function renderOpenQuestionsList() {
+    const navList = document.getElementById("open-q-nav-list");
+    if (!navList) return;
+
+    navList.innerHTML = "";
+    if (filteredOpenQuestions.length === 0) {
+      navList.innerHTML = `<div style="color: var(--text-muted); font-size: 13px; text-align: center; padding: 15px; font-style: italic;">אין שאלות בנושא זה</div>`;
+      return;
+    }
+
+    filteredOpenQuestions.forEach((q, idx) => {
+      const btn = document.createElement("button");
+      btn.className = "open-q-nav-btn";
+      if (idx === currentFilteredOpenQIndex) {
+        btn.classList.add("active");
+      }
+      
+      btn.innerHTML = `
+        <span>${q.title}</span>
+        <span class="open-q-nav-btn-meta">שאלה ${q.id} | ${q.points} נק'</span>
+      `;
+      
+      btn.addEventListener("click", () => {
+        currentFilteredOpenQIndex = idx;
+        
+        navList.querySelectorAll(".open-q-nav-btn").forEach((b, bIdx) => {
+          if (bIdx === idx) b.classList.add("active");
+          else b.classList.remove("active");
+        });
+        
+        renderActiveOpenQuestion();
+      });
+      
+      navList.appendChild(btn);
+    });
   }
 
   function renderActiveOpenQuestion() {
-    const q = organicOpenQuestions[currentOpenQuestionIndex];
-    if (!q) return;
+    const q = filteredOpenQuestions[currentFilteredOpenQIndex];
+    const hintCard = document.getElementById("open-q-hint-card");
+    const solCard = document.getElementById("open-q-sol-card");
+    const hintBtn = document.getElementById("open-q-hint-btn");
+    const solBtn = document.getElementById("open-q-sol-btn");
+    const viewer = document.getElementById("open-q-molecule-viewer");
+    
+    hintCard.style.display = "none";
+    solCard.style.display = "none";
+    hintBtn.textContent = "הצג רמז שלב א' 💡";
+    solBtn.textContent = "הצג פתרון מלא רשמי ✨";
 
-    // Reset cards to hidden
-    document.getElementById("open-q-hint-card").style.display = "none";
-    document.getElementById("open-q-sol-card").style.display = "none";
-    document.getElementById("open-q-hint-btn").textContent = "הצג רמז שלב א' 💡";
-    document.getElementById("open-q-sol-btn").textContent = "הצג פתרון מלא רשמי ✨";
+    if (!q) {
+      document.getElementById("open-q-badge-num").textContent = "סיום";
+      document.getElementById("open-q-title").textContent = "אין שאלות זמינות";
+      document.getElementById("open-q-text").innerHTML = "אנא בחרי נושא אחר מרשימת הסינון.";
+      viewer.style.display = "none";
+      viewer.innerHTML = "";
+      hintBtn.style.display = "none";
+      solBtn.style.display = "none";
+      return;
+    }
 
-    // Update text content
+    hintBtn.style.display = "block";
+    solBtn.style.display = "block";
+
     document.getElementById("open-q-badge-num").textContent = `שאלה ${q.id}`;
     document.getElementById("open-q-title").textContent = q.title;
     
@@ -840,8 +882,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("open-q-hint-text").innerHTML = parseMarkdown(q.hint);
     document.getElementById("open-q-sol-text").innerHTML = parseMarkdown(q.solution);
 
-    // Render SVG
-    const viewer = document.getElementById("open-q-molecule-viewer");
     if (q.svg) {
       viewer.style.display = "flex";
       viewer.innerHTML = q.svg;
@@ -850,7 +890,6 @@ document.addEventListener("DOMContentLoaded", () => {
       viewer.innerHTML = "";
     }
 
-    // Typeset LaTeX via MathJax
     if (window.MathJax && typeof MathJax.typesetPromise === "function") {
       const workspace = document.getElementById("screen-open-questions");
       if (workspace) {
