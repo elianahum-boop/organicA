@@ -158,6 +158,8 @@ document.addEventListener("DOMContentLoaded", () => {
       initChairSimulator();
     } else if (hash === "#flashcards") {
       renderFlashcard();
+    } else if (hash === "#open-questions") {
+      initOpenQuestionsWorkspace();
     } else if (hash === "#synthesis") {
       initSynthesisWorkspace();
     } else if (hash === "#search") {
@@ -348,7 +350,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Title & Text
     document.getElementById("quiz-question-title").textContent = q.title;
-    document.getElementById("quiz-question-text").textContent = q.text;
+    const qTextEl = document.getElementById("quiz-question-text");
+    qTextEl.textContent = q.text;
+    
+    if (window.MathJax && typeof MathJax.typesetPromise === "function") {
+      MathJax.typesetPromise([qTextEl]).catch(err => console.log('MathJax typeset error:', err));
+    }
     
     // SVG Representation
     const viewer = document.getElementById("quiz-molecule-viewer");
@@ -424,6 +431,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const expText = document.getElementById("quiz-explanation-text");
     expText.innerHTML = parseMarkdown(q.explanation);
     expCard.style.display = "block";
+
+    if (window.MathJax && typeof MathJax.typesetPromise === "function") {
+      MathJax.typesetPromise([expText]).catch(err => console.log('MathJax typeset error:', err));
+    }
 
     // Show Next Button
     const nextBtn = document.getElementById("quiz-next-btn");
@@ -740,6 +751,113 @@ document.addEventListener("DOMContentLoaded", () => {
       resultText.textContent = `הרצף שהצעת אינו מפיק את המולקולה הנכונה. רמז: בדקי שוב את רגיוסלקטיביות התגובות. (נסי למשל: ${ch.hint})`;
     }
   });
+
+
+  // --- מערכת שאלות פתוחות למבחן (Open Questions Workspace) ---
+  let currentOpenQuestionIndex = 0;
+  let isOpenQuestionsInitialized = false;
+
+  function initOpenQuestionsWorkspace() {
+    const navList = document.getElementById("open-q-nav-list");
+    if (!navList) return;
+
+    // Render the list of questions in the sidebar
+    navList.innerHTML = "";
+    organicOpenQuestions.forEach((q, idx) => {
+      const btn = document.createElement("button");
+      btn.className = "open-q-nav-btn";
+      if (idx === currentOpenQuestionIndex) {
+        btn.classList.add("active");
+      }
+      
+      btn.innerHTML = `
+        <span>${q.title}</span>
+        <span class="open-q-nav-btn-meta">שאלה ${q.id} | ${q.points} נק'</span>
+      `;
+      
+      btn.addEventListener("click", () => {
+        currentOpenQuestionIndex = idx;
+        
+        navList.querySelectorAll(".open-q-nav-btn").forEach((b, bIdx) => {
+          if (bIdx === idx) b.classList.add("active");
+          else b.classList.remove("active");
+        });
+        
+        renderActiveOpenQuestion();
+      });
+      
+      navList.appendChild(btn);
+    });
+
+    // Bind action buttons once
+    if (!isOpenQuestionsInitialized) {
+      const hintBtn = document.getElementById("open-q-hint-btn");
+      const solBtn = document.getElementById("open-q-sol-btn");
+      
+      hintBtn.addEventListener("click", () => {
+        const hintCard = document.getElementById("open-q-hint-card");
+        if (hintCard.style.display === "none") {
+          hintCard.style.display = "block";
+          hintBtn.textContent = "הסתר רמז 💡";
+        } else {
+          hintCard.style.display = "none";
+          hintBtn.textContent = "הצג רמז שלב א' 💡";
+        }
+      });
+      
+      solBtn.addEventListener("click", () => {
+        const solCard = document.getElementById("open-q-sol-card");
+        if (solCard.style.display === "none") {
+          solCard.style.display = "block";
+          solBtn.textContent = "הסתר פתרון מלא ❌";
+        } else {
+          solCard.style.display = "none";
+          solBtn.textContent = "הצג פתרון מלא רשמי ✨";
+        }
+      });
+      
+      isOpenQuestionsInitialized = true;
+    }
+
+    renderActiveOpenQuestion();
+  }
+
+  function renderActiveOpenQuestion() {
+    const q = organicOpenQuestions[currentOpenQuestionIndex];
+    if (!q) return;
+
+    // Reset cards to hidden
+    document.getElementById("open-q-hint-card").style.display = "none";
+    document.getElementById("open-q-sol-card").style.display = "none";
+    document.getElementById("open-q-hint-btn").textContent = "הצג רמז שלב א' 💡";
+    document.getElementById("open-q-sol-btn").textContent = "הצג פתרון מלא רשמי ✨";
+
+    // Update text content
+    document.getElementById("open-q-badge-num").textContent = `שאלה ${q.id}`;
+    document.getElementById("open-q-title").textContent = q.title;
+    
+    document.getElementById("open-q-text").innerHTML = parseMarkdown(q.text);
+    document.getElementById("open-q-hint-text").innerHTML = parseMarkdown(q.hint);
+    document.getElementById("open-q-sol-text").innerHTML = parseMarkdown(q.solution);
+
+    // Render SVG
+    const viewer = document.getElementById("open-q-molecule-viewer");
+    if (q.svg) {
+      viewer.style.display = "flex";
+      viewer.innerHTML = q.svg;
+    } else {
+      viewer.style.display = "none";
+      viewer.innerHTML = "";
+    }
+
+    // Typeset LaTeX via MathJax
+    if (window.MathJax && typeof MathJax.typesetPromise === "function") {
+      const workspace = document.getElementById("screen-open-questions");
+      if (workspace) {
+        MathJax.typesetPromise([workspace]).catch(err => console.log('MathJax typeset error:', err));
+      }
+    }
+  }
 
 
   // --- מנוע חיפוש בסיכומי קורס (Search Engine) ---

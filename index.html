@@ -8,6 +8,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Rubik:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <!-- MathJax for rendering LaTeX and Chemical formulas -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
 </head>
 <body>
   <div class="app-container">
@@ -28,6 +39,9 @@
         </a>
         <a href="#quizzes" class="nav-item" id="nav-quizzes">
           <span class="nav-icon">📝</span> בחני תרגול
+        </a>
+        <a href="#open-questions" class="nav-item" id="nav-open-questions">
+          <span class="nav-icon">📄</span> שאלות פתוחות
         </a>
         <a href="#chair" class="nav-item" id="nav-chair">
           <span class="nav-icon">🔄</span> סימולטור כסאות
@@ -140,6 +154,69 @@
             </div>
             <div class="exp-content" id="quiz-explanation-text">
               הסבר מפורט בעברית...
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREEN: OPEN QUESTIONS -->
+      <section id="screen-open-questions" class="screen-panel">
+        <div class="welcome-banner">
+          <h2>שאלות מבחן פתוחות ומנגנונים 📝</h2>
+          <p>הכנה ממוקדת לחלק ב' של הבחינה (60% מהציון). פתרי את השאלות הפתוחות על דף, והשווי את תשובותייך למנגנונים המפורטים ולרמזים שלב-אחר-שלב.</p>
+        </div>
+
+        <div class="open-questions-layout">
+          <!-- Selection and Navigation Sidebar -->
+          <div class="open-q-sidebar">
+            <h3>בחרי שאלה לתרגול:</h3>
+            <div class="open-q-list" id="open-q-nav-list">
+              <!-- Dynamically populated buttons for Q1-Q6 -->
+            </div>
+          </div>
+
+          <!-- Main Question & Solution Workspace -->
+          <div class="open-q-workspace">
+            <div class="open-q-card">
+              <div class="open-q-header">
+                <span class="open-q-badge" id="open-q-badge-num">שאלה 1</span>
+                <span class="open-q-points">20 נקודות</span>
+              </div>
+              <h3 id="open-q-title">כותרת השאלה</h3>
+              <div class="open-q-content" id="open-q-text">
+                טקסט השאלה...
+              </div>
+              <div class="molecule-viewer" id="open-q-molecule-viewer">
+                <!-- SVG diagram of starting material / products -->
+              </div>
+            </div>
+
+            <!-- Hint & Solution buttons -->
+            <div class="open-q-actions">
+              <button class="action-btn secondary-btn" id="open-q-hint-btn">הצג רמז שלב א' 💡</button>
+              <button class="action-btn success-btn" id="open-q-sol-btn">הצג פתרון מלא רשמי ✨</button>
+            </div>
+
+            <!-- Hint Display -->
+            <div class="explanation-card" id="open-q-hint-card" style="display:none; margin-top:15px; padding-top: 15px;">
+              <div class="exp-header">
+                <span class="exp-icon">💡</span>
+                <h4>רמז והכוונה:</h4>
+              </div>
+              <div class="exp-content" id="open-q-hint-text">
+                רמז...
+              </div>
+            </div>
+
+            <!-- Official Full Solution Display -->
+            <div class="explanation-card" id="open-q-sol-card" style="display:none; margin-top:15px; padding-top: 15px; border-top: 1px solid var(--success);">
+              <div class="exp-header">
+                <span class="exp-icon">✨</span>
+                <h4>פתרון רשמי ומנגנון מפורט:</h4>
+              </div>
+              <div class="exp-content" id="open-q-sol-text">
+                פתרון מלא...
+              </div>
             </div>
           </div>
         </div>
@@ -346,6 +423,7 @@
   <!-- Include all js databases and scripts -->
   <script src="data_questions.js?v=1.1"></script>
   <script src="data_flashcards.js?v=1.1"></script>
+  <script src="data_open_questions.js?v=1.2"></script>
   <script src="chair_simulator.js?v=1.1"></script>
   <script src="summary.js?v=1.1"></script>
   <script src="app.js?v=1.1"></script>
