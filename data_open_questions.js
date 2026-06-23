@@ -3,7 +3,7 @@ const organicOpenQuestions = [
   {
     id: 1,
     category: "mechanisms",
-    title: "מנגנון וסינתזה רב-שלבית – שחלופים והגדלת טבעת <span dir="ltr">(Ring Expansion)</span>",
+    title: 'מנגנון וסינתזה רב-שלבית – שחלופים והגדלת טבעת <span dir="ltr">(Ring Expansion)</span>',
     points: 20,
     text: `נתון כי המגיב <span dir="ltr">**1-cyclobutylethanol**</span> מגיב בתנאי דה-הידרציה בסביבה חומצית חמה (\\(\\ce{H2SO4}\\) / \\(\\Delta\\)) לקבלת התוצר העיקרי <span dir="ltr">**1-methylcyclopentene**</span>.
     
@@ -73,7 +73,7 @@ const organicOpenQuestions = [
   {
     id: 2,
     category: "stereochemistry",
-    title: "מנגנוני התמרה נוקלאופילית <span dir="ltr">(S_N1 vs S_N2)</span> וחישוב ניקיון אופטי <span dir="ltr">(%ee)</span>",
+    title: 'מנגנוני התמרה נוקלאופילית <span dir="ltr">(S_N1 vs S_N2)</span> וחישוב ניקיון אופטי <span dir="ltr">(%ee)</span>',
     points: 20,
     text: `נתון המגיב הכיראלי הטהור-אופטית <span dir="ltr">**(S)-2-bromobutane**</span>. הוא מגיב בשני מסלולים נפרדים:
     
@@ -152,7 +152,7 @@ const organicOpenQuestions = [
   {
     id: 3,
     category: "conformations",
-    title: "אלימינציה <span dir="ltr">E2</span> בטבעות ציקלוהקסאן – דרישת <span dir="ltr">trans-diaxial</span>",
+    title: 'אלימינציה <span dir="ltr">E2</span> בטבעות ציקלוהקסאן – דרישת <span dir="ltr">trans-diaxial</span>',
     points: 20,
     text: `נתונים שני האיזומרים הבאים של אלקיל הליד טבעתי, המגיבים עם הבסיס החזק <span dir="ltr">\\(NaOEt\\)</span> באתנול חם (<span dir="ltr">\\(EtOH\\) / \\(\Delta\\)</span>):
     
@@ -220,7 +220,7 @@ const organicOpenQuestions = [
   {
     id: 4,
     category: "conformations",
-    title: "אנליזה קונפורמטיבית ודיאגרמת אנרגיה (סיבוב קשר <span dir="ltr">C2-C3</span>)",
+    title: 'אנליזה קונפורמטיבית ודיאגרמת אנרגיה (סיבוב קשר <span dir="ltr">C2-C3</span>)',
     points: 20,
     text: `נתונה התרכובת <span dir="ltr">**2-bromo-3-methylbutane**</span>. נבצע סיבוב של 360 מעלות סביב הקשר הפחמני <span dir="ltr">C2-C3</span>.
     
@@ -289,7 +289,7 @@ const organicOpenQuestions = [
   {
     id: 5,
     category: "stereochemistry",
-    title: "תגובות סיפוח אלקנים וסטריאוספציפיות (חוקי <span dir="ltr">CAR / TAM</span>)",
+    title: 'תגובות סיפוח אלקנים וסטריאוספציפיות (חוקי <span dir="ltr">CAR / TAM</span>)',
     points: 20,
     text: `נתונים שני האלקנים הבאים: <span dir="ltr">**cis-2-butene**</span> ו-<span dir="ltr">**trans-2-butene**</span>. 
 כל אחד מהם מגיב בשני תנאים נפרדים:
@@ -435,7 +435,7 @@ const organicOpenQuestions = [
   {
     id: 7,
     category: "synthesis",
-    title: "סינתזה רב-שלבית של אלכוהול משני מאצטילן <span dir="ltr">(Ethyne)</span>",
+    title: 'סינתזה רב-שלבית של אלכוהול משני מאצטילן <span dir="ltr">(Ethyne)</span>',
     points: 20,
     text: `נא להציע נתיב סינתטי רב-שלבי לקבלת <span dir="ltr">**2-hexanol**</span> כאשר חומר המוצא הפחמני היחיד שברשותכם הוא אצטילן (<span dir="ltr">\\(\ce{HC\\equiv CH}\\)</span>). לרשותכם כל מגיב אי-אורגני, בסיסים, ממסים ואלקיל הלידים נחוצים.
     
@@ -577,7 +577,7 @@ const organicOpenQuestions = [
   {
     id: 9,
     category: "mechanisms",
-    title: "מנגנון דה-הידרציה חומצית ושחלופי קרבוקטיונים <span dir="ltr">(Methanide Shift)</span>",
+    title: 'מנגנון דה-הידרציה חומצית ושחלופי קרבוקטיונים <span dir="ltr">(Methanide Shift)</span>',
     points: 20,
     text: `כאשר האלכוהול <span dir="ltr">**3,3-dimethyl-2-butanol**</span> מגיב בסביבה חומצית חמה בנוכחות חומצה זרחתית (<span dir="ltr">\\(\ce{H3PO4}\\) / \\(\Delta\\)</span>), מתקבלת תערובת של אלקנים. התוצר העיקרי הוא <span dir="ltr">**2,3-dimethyl-2-butene**</span>, ואילו התוצר המינורי הוא <span dir="ltr">**2,3-dimethyl-1-butene**</span>. בנוסף, מתקבלים עקבות קטנים מאוד של תוצר ללא שחלוף.
 
@@ -650,7 +650,7 @@ const organicOpenQuestions = [
   {
     id: 10,
     category: "mechanisms",
-    title: "תחרות בין התמרה לאלימינציה <span dir="ltr">(S_N2 vs E2)</span> במצעים מופרעים",
+    title: 'תחרות בין התמרה לאלימינציה <span dir="ltr">(S_N2 vs E2)</span> במצעים מופרעים',
     points: 20,
     text: `נתון המגיב <span dir="ltr">**1-bromo-2-methylpropane**</span> (איזובוטיל ברומיד). הוא מגיב בשני מסלולים נפרדים:
 **מסלול א':** תגובה עם סודיום מתוקסיד (<span dir="ltr">\\(\ce{NaOMe}\\)</span>) במתנול (<span dir="ltr">\\(\ce{MeOH}\\)</span>) בטמפרטורת החדר. מתקבלים תוצר **A** (עיקרי) ותוצר **B** (משני).
@@ -710,7 +710,7 @@ const organicOpenQuestions = [
   {
     id: 11,
     category: "stereochemistry",
-    title: "סטריאוכימיה של תרכובות מזו <span dir="ltr">(Meso Compounds)</span> וחישוב סטריאואיזומרים",
+    title: 'סטריאוכימיה של תרכובות מזו <span dir="ltr">(Meso Compounds)</span> וחישוב סטריאואיזומרים',
     points: 20,
     text: `נתונה התרכובת <span dir="ltr">**2,3-dichlorobutane**</span>.
 
@@ -772,7 +772,7 @@ const organicOpenQuestions = [
   {
     id: 12,
     category: "conformations",
-    title: "אנליזה קונפורמטיבית של ציקלוהקסאן דו-מותמר <span dir="ltr">(1,3-dimethyl)</span>",
+    title: 'אנליזה קונפורמטיבית של ציקלוהקסאן דו-מותמר <span dir="ltr">(1,3-dimethyl)</span>',
     points: 20,
     text: `נשווה בין שני איזומרים גאומטריים של דימתילציקלוהקסאן: <span dir="ltr">**cis-1,3-dimethylcyclohexane**</span> ו-<span dir="ltr">**trans-1,3-dimethylcyclohexane**</span>.
 
