@@ -296,7 +296,9 @@ document.addEventListener("DOMContentLoaded", () => {
       .replace(/&lt;defs(.*?)&gt;/g, "<defs$1>")
       .replace(/&lt;\/defs&gt;/g, "</defs>")
       .replace(/&lt;marker(.*?)&gt;/g, "<marker$1>")
-      .replace(/&lt;\/marker&gt;/g, "</marker>");
+      .replace(/&lt;\/marker&gt;/g, "</marker>")
+      .replace(/&lt;span(.*?)&gt;/g, "<span$1>")
+      .replace(/&lt;\/span&gt;/g, "</span>");
       
     return escaped;
   }
@@ -829,7 +831,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       
       btn.innerHTML = `
-        <span>${q.title}</span>
+        <span>${parseMarkdown(q.title)}</span>
         <span class="open-q-nav-btn-meta">שאלה ${q.id} | ${q.points} נק'</span>
       `;
       
@@ -876,7 +878,7 @@ document.addEventListener("DOMContentLoaded", () => {
     solBtn.style.display = "block";
 
     document.getElementById("open-q-badge-num").textContent = `שאלה ${q.id}`;
-    document.getElementById("open-q-title").textContent = q.title;
+    document.getElementById("open-q-title").innerHTML = parseMarkdown(q.title);
     
     document.getElementById("open-q-text").innerHTML = parseMarkdown(q.text);
     document.getElementById("open-q-hint-text").innerHTML = parseMarkdown(q.hint);
