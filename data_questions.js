@@ -2100,37 +2100,42 @@ Menthyl chloride מגיב לאט מאוד ונותן רק את אלקן הופמ
         <line x1="35" y1="50" x2="60" y2="30" stroke="#f8fafc" stroke-width="2"/>
         <line x1="60" y1="30" x2="85" y2="50" stroke="#f8fafc" stroke-width="2"/>
         <!-- methyls on C3 -->
-        <line x1="60" y1="30" x2="60" y2="5" stroke="#f8fafc" stroke-width="2"/>
+        <line x1="60" y1="30" x2="50" y2="5" stroke="#f8fafc" stroke-width="2"/>
+        <line x1="60" y1="30" x2="70" y2="5" stroke="#f8fafc" stroke-width="2"/>
         <!-- positive charge on C2 -->
         <circle cx="35" cy="50" r="8" fill="#f43f5e" opacity="0.2"/>
         <text x="35" y="53" fill="#f43f5e" font-family="Arial" font-size="10" font-weight="bold" text-anchor="middle">+</text>
         <text x="45" y="80" fill="#94a3b8" font-family="Arial" font-size="11" font-weight="bold" text-anchor="middle">I</text>
       </g>
       <!-- II: 3-methyl-2-butyl cation -->
-      <g transform="translate(110, 15)">
+      <g transform="translate(100, 15)">
         <line x1="10" y1="50" x2="35" y2="50" stroke="#f8fafc" stroke-width="2"/>
         <line x1="35" y1="50" x2="60" y2="30" stroke="#f8fafc" stroke-width="2"/>
         <line x1="60" y1="30" x2="85" y2="50" stroke="#f8fafc" stroke-width="2"/>
+        <!-- methyl on C3 -->
+        <line x1="60" y1="30" x2="60" y2="5" stroke="#f8fafc" stroke-width="2"/>
         <!-- positive charge on C2 -->
         <circle cx="35" cy="50" r="8" fill="#f43f5e" opacity="0.2"/>
         <text x="35" y="53" fill="#f43f5e" font-family="Arial" font-size="10" font-weight="bold" text-anchor="middle">+</text>
         <text x="45" y="80" fill="#94a3b8" font-family="Arial" font-size="11" font-weight="bold" text-anchor="middle">II</text>
       </g>
       <!-- III: 2-methyl-2-butyl cation -->
-      <g transform="translate(210, 15)">
+      <g transform="translate(190, 15)">
         <line x1="10" y1="50" x2="35" y2="50" stroke="#f8fafc" stroke-width="2"/>
         <line x1="35" y1="50" x2="60" y2="30" stroke="#f8fafc" stroke-width="2"/>
+        <line x1="60" y1="30" x2="85" y2="50" stroke="#f8fafc" stroke-width="2"/>
         <line x1="35" y1="50" x2="35" y2="25" stroke="#f8fafc" stroke-width="2"/>
         <!-- positive charge on C2 (tertiary) -->
         <circle cx="35" cy="50" r="8" fill="#38bdf8" opacity="0.2"/>
         <text x="35" y="53" fill="#38bdf8" font-family="Arial" font-size="10" font-weight="bold" text-anchor="middle">+</text>
         <text x="45" y="80" fill="#94a3b8" font-family="Arial" font-size="11" font-weight="bold" text-anchor="middle">III</text>
       </g>
-      <!-- IV: 2-pentyl cation -->
-      <g transform="translate(300, 15)">
+      <!-- IV: 3-pentyl cation -->
+      <g transform="translate(280, 15)">
         <line x1="10" y1="50" x2="35" y2="50" stroke="#f8fafc" stroke-width="2"/>
         <line x1="35" y1="50" x2="60" y2="30" stroke="#f8fafc" stroke-width="2"/>
         <line x1="60" y1="30" x2="85" y2="50" stroke="#f8fafc" stroke-width="2"/>
+        <line x1="85" y1="50" x2="110" y2="30" stroke="#f8fafc" stroke-width="2"/>
         <!-- positive charge on C3 -->
         <circle cx="60" cy="30" r="8" fill="#f8fafc" opacity="0.2"/>
         <text x="60" y="33" fill="#f8fafc" font-family="Arial" font-size="10" font-weight="bold" text-anchor="middle">+</text>
