@@ -1864,7 +1864,7 @@ const organicQuestions = [
       <text x="265" y="65" fill="#eab308" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle">?</text>
     </svg>`,
     options: [
-      "שתי מולקולות זהות של 5-oxohexanal (מולקולות המכילות קטון ואלדהיד)",
+      "שתי מולקולות זהות של 4-oxopentanal (מולקולות המכילות קטון ואלדהיד)",
       "שתי מולקולות זהות של 2,5-hexanedione (דיקטון)",
       "מולקולה יחידה של 1,5-dimethylcyclooctane-1,5-diol",
       "ארבע מולקולות של acetaldehyde"
@@ -1886,15 +1886,15 @@ const organicQuestions = [
 
 **שלב 3: ספירה וקישוריות השרשרת**
 - נספור את מספר הפחמנים בכל שרשרת שנוצרה:
-  - פחמן C1 (הקטון שנוצר, הקשור למתיל).
+  - פחמן C1 (הקטון שנוצר). הקבוצה מכילה גם את פחמן המתיל.
   - פחמן C8 (קבוצת $\ce{CH2}$).
   - פחמן C7 (קבוצת $\ce{CH2}$).
   - פחמן C6 (האלדהיד שנוצר).
-  סך הכל שרשרת של 6 פחמנים (כולל המתיל).
+  סך הכל שרשרת של 5 פחמנים (כולל המתיל).
 - השרשרת השנייה שנוצרת (מביקוע פחמנים C5-C4-C3-C2) זהה לה לחלוטין.
-- המולקולה שנוצרה מכילה קטון בקצה אחד (פחמן 2) ואלדהיד בקצה השני (פחמן 1).
-- שם המולקולה הוא **5-oxohexanal**.
-- לכן, מתקבלות **שתי מולקולות זהות של 5-oxohexanal**.`
+- המולקולה שנוצרה מכילה קטון בפחמן 4 ואלדהיד בקצה (פחמן 1).
+- שם המולקולה הוא **4-oxopentanal**.
+- לכן, מתקבלות **שתי מולקולות זהות של 4-oxopentanal**.`
   },
   {
     id: 37,
@@ -2922,13 +2922,20 @@ Menthyl chloride מגיב לאט מאוד ונותן רק את אלקן הופמ
     title: "אוזונוליזה מחזרת של מערכת דו-טבעתית מתוחה",
     text: "מהו התוצר המתקבל בתגובת האוזונוליזה המחזרת (1. O3, 2. DMS) של המולקולה Bicyclo[2.2.1]hept-2-ene (Norbornene)?",
     svg: `<svg viewBox="0 0 320 130" width="100%" height="130" style="background:#1e293b; border-radius:8px; direction: ltr;">
-      <!-- Norbornene double bond cleavage representation -->
+      <!-- Bottom path (front, containing double bond) -->
       <line x1="80" y1="80" x2="110" y2="110" stroke="#f8fafc" stroke-width="3"/>
-      <line x1="110" y1="110" x2="160" y2="110" stroke="#f8fafc" stroke-width="5"/> <!-- double bond cleaved -->
+      <line x1="110" y1="110" x2="160" y2="110" stroke="#f8fafc" stroke-width="5"/> <!-- double bond -->
       <line x1="113" y1="104" x2="157" y2="104" stroke="#f8fafc" stroke-width="2"/>
       <line x1="160" y1="110" x2="190" y2="80" stroke="#f8fafc" stroke-width="3"/>
-      <line x1="80" y1="80" x2="135" y2="45" stroke="#f8fafc" stroke-width="3"/>
-      <line x1="135" y1="45" x2="190" y2="80" stroke="#f8fafc" stroke-width="3"/>
+      
+      <!-- Top path (back carbons) -->
+      <line x1="80" y1="80" x2="110" y2="50" stroke="#f8fafc" stroke-width="3"/>
+      <line x1="110" y1="50" x2="160" y2="50" stroke="#f8fafc" stroke-width="3"/>
+      <line x1="160" y1="50" x2="190" y2="80" stroke="#f8fafc" stroke-width="3"/>
+
+      <!-- Bridge C7 (1 carbon) -->
+      <line x1="80" y1="80" x2="135" y2="85" stroke="#38bdf8" stroke-width="3"/>
+      <line x1="135" y1="85" x2="190" y2="80" stroke="#38bdf8" stroke-width="3"/>
       <!-- Cleavage line -->
       <line x1="135" y1="95" x2="135" y2="125" stroke="#ef4444" stroke-width="2" stroke-dasharray="4"/>
       <!-- Reagents -->
